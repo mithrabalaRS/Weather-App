@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Pulse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <section id="loginScreen" class="login-screen active">
+        <div class="login-box">
+          <div class="brand-wrap">
+            <div class="logo">☁️</div>
+            <div>
+              <p class="eyebrow">Weather Dashboard</p>
+              <h1>Weather Pulse</h1>
+            </div>
+          </div>
+
+          <form id="loginForm" class="login-form">
+            <label>
+              <span>Username</span>
+              <input id="username" type="text" placeholder="Enter any username" autocomplete="username" required />
+            </label>
+
+            <label>
+              <span>Password</span>
+              <input id="password" type="password" placeholder="Enter any password" autocomplete="current-password" required />
+            </label>
+
+            <button type="submit" class="primary-btn">Login</button>
+          </form>
+        </div>
+      </section>
+
+      <main id="appScreen" class="weather-app hidden">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Good day</p>
+            <h2>Weather Overview</h2>
+          </div>
+          <button id="logoutBtn" class="ghost-btn">Logout</button>
+        </header>
+
+        <section class="search-panel">
+          <div class="search-wrap">
+            <input
+              id="cityInput"
+              type="text"
+              placeholder="Search city name..."
+              autocomplete="off"
+            />
+            <button id="searchBtn" class="primary-btn">Search</button>
+          </div>
+          <div class="toolbar">
+            <button id="favoriteBtn" class="small-btn">Add Favorite</button>
+            <button id="clearHistoryBtn" class="small-btn danger">Clear History</button>
+          </div>
+          <div id="suggestions" class="suggestions hidden" aria-live="polite"></div>
+        </section>
+
+        <div id="historySection" class="history-section">
+          <p>Previous searches</p>
+          <div id="historyList" class="history-list"></div>
+        </div>
+
+        <div class="favorites-section">
+          <p>Favorite cities</p>
+          <div id="favoritesList" class="favorites-list"></div>
+        </div>
+
+        <section class="weather-summary card">
+          <div class="summary-header">
+            <div>
+              <p id="locationName" class="location">Loading...</p>
+              <p id="weatherDate" class="muted">--</p>
+            </div>
+            <div id="conditionBadge" class="condition-badge">--</div>
+          </div>
+
+          <div class="summary-body">
+            <div class="main-temp-box">
+              <div id="mainTemp" class="main-temp">--°</div>
+              <div id="mainCondition" class="main-condition">--</div>
+            </div>
+
+            <div class="weather-metrics">
+              <div class="metric">
+                <span>Humidity</span>
+                <strong id="humidityValue">--%</strong>
+              </div>
+              <div class="metric">
+                <span>Wind</span>
+                <strong id="windValue">-- km/h</strong>
+              </div>
+              <div class="metric">
+                <span>Feels Like</span>
+                <strong id="feelsValue">--°</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="forecastSection" class="forecast-section"></section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
